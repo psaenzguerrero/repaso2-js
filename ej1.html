@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <script>
+// Ejercicio 1: Crear una lista dinámica
+// Crea una página con un botón que, al ser presionado, añada un nuevo
+// elemento a una lista <ul>. Cada elemento debe tener un texto aleatorio
+// generado desde un array.
+        const lista = document.createElement("ul");
+        
+        const boton = document.createElement("button");
+        
+        const array =[0,1,2,3,4,5];
+        boton.addEventListener("click",()=>{
+            const añadido = document.createElement("li");
+            añadido.textContent=array[Math.random()*10];
+            console.log(añadido);
+            lista.append(añadido);
+        })
+        boton.textContent="p";
+        document.body.append(boton);
+        document.body.append(lista);
+    </script> -->
+    <script>
+// Ejercicio 2: Contador con incremento y decremento
+// Crea un contador con un número inicial en 0 y dos botones: uno para
+// incrementar y otro para decrementar. El número debe mostrarse en tiempo real
+// en la página.  
+        const b1 = document.createElement("button");
+        b1.textContent = "aumentar";
+        const b2 = document.createElement("button");
+        b2.textContent = "quitar";
+        const p = document.createElement("p");
+        
+        document.body.append(b1,b2,p);
+        document.addEventListener("DOMContentLoaded",()=>{
+        let x =0;
+            b1.addEventListener("click", ()=>{  
+                x += 1;
+                p.textContent = x;
+            })
+            b2.addEventListener("click", ()=>{
+                x -= 1;
+                p.textContent = x;
+            })
+        })
+        
+        
+    </script>
+    <script>
+// Ejercicio 3: Filtro de búsqueda en una tabla
+// Crea una tabla con datos ficticios (nombre, edad, correo). Agrega un campo de
+// búsqueda que filtre los resultados en tiempo real mientras el usuario escribe.
+
+
+
+    </script>
+</body>
+</html>
