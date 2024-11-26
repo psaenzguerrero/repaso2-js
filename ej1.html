@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
 </head>
 <body>
     <!-- <script>
@@ -26,7 +27,7 @@
         document.body.append(boton);
         document.body.append(lista);
     </script> -->
-    <script>
+    <!-- <script>
 // Ejercicio 2: Contador con incremento y decremento
 // Crea un contador con un número inicial en 0 y dos botones: uno para
 // incrementar y otro para decrementar. El número debe mostrarse en tiempo real
@@ -51,14 +52,148 @@
         })
         
         
-    </script>
-    <script>
+    </script> -->
+    <!-- <script>
 // Ejercicio 3: Filtro de búsqueda en una tabla
 // Crea una tabla con datos ficticios (nombre, edad, correo). Agrega un campo de
 // búsqueda que filtre los resultados en tiempo real mientras el usuario escribe.
+        
+        const input = document.createElement("input");
+        input.setAttribute("type","search");
+
+        const tabla = document.createElement("table");
+
+        const fila = document.createElement("tr");
+        const nom = document.createElement("td");
+        nom.textContent="NOMBRE";
+        const edad = document.createElement("td");
+        edad.textContent="EDAD";
+        const correo = document.createElement("td");
+        correo.textContent="CORREO";
+
+        const fila1 = document.createElement("tr");
+        const nom1 = document.createElement("td");
+        nom1.textContent="Ana";
+        const edad1 = document.createElement("td");
+        edad1.textContent="18";
+        const correo1 = document.createElement("td");
+        correo1.textContent="ana@g";
+
+        const fila2 = document.createElement("tr");
+        const nom2 = document.createElement("td");
+        nom2.textContent="peluca";
+        const edad2 = document.createElement("td");
+        edad2.textContent="50";
+        const correo2 = document.createElement("td");
+        correo2.textContent="pelucasapee";
+
+        const fila3 = document.createElement("tr");
+        const nom3 = document.createElement("td");
+        nom3.textContent="ros";
+        const edad3 = document.createElement("td");
+        edad3.textContent="14";
+        const correo3 = document.createElement("td");
+        correo3.textContent="rosquilla";
+
+        document.body.append(input,tabla);
+        tabla.append(fila,fila1,fila2,fila3);
+        fila.append(nom,edad,correo);
+        fila1.append(nom1,edad1,correo1);
+        fila2.append(nom2,edad2,correo2);
+        fila3.append(nom3,edad3,correo3);
+
+        const td = document.querySelectorAll("td");
+        document.addEventListener("DOMContentLoaded",()=>{
+            let escrito ;
+            input.addEventListener("input",(e)=>{
+                escrito = e.target.value;
+                td.forEach(elemento =>{
+                    if (!elemento.textContent.toLowerCase().trim().includes(escrito)) {
+                        elemento.style.display="none";
+                    } else {
+                        elemento.style.display = "list-item";
+                    }
+                })
+            })
+        })
 
 
+    </script> -->
+    <!-- <script>
+// Ejercicio 4: Galería de imágenes interactiva
+// Crea una galería con miniaturas de imágenes. Al hacer clic en una miniatura,
+// muestra la imagen en grande en un contenedor aparte.
+
+        const lista = document.createElement("ul");
+        const fila = document.createElement("li");
+        const fila2 = document.createElement("li");
+        const fila3 = document.createElement("li");
+        
+        document.body.append(lista);
+        lista.append(fila,fila2,fila3);
+    
+        let imagenes = ["./img/images.jfif","./img/descarga.jfif", "./img/06-clipimage-6228c846afded__700-622b13dfc0ac7__700.jpg"]
+        let cont = 0;
+
+        const todo = document.querySelectorAll("li");
+        todo.forEach(elemento =>{
+            const div = document.createElement("div");
+            const img = document.createElement("img");
+            elemento.append(div);
+            img.src = imagenes[cont]
+            // img.src="https://picsum.photos/200/"+cont;
+            cont++;
+            div.append(img);
+            
+            img.addEventListener("click",()=>{
+                const contenedor = document.createElement("div");
+                document.body.append(contenedor);
+                let imgMostrar = img.src;
+                contenedor.style.width="1000px";
+                contenedor.style.height="1000px";
+                contenedor.style.backgroundImage=`url(${imgMostrar})`;
+                contenedor.style.backgroundPosition="center";
+                contenedor.style.backgroundRepeat="no-repeat"
+            })
+        })
+        
+    </script> -->
+    <script>
+// Ejercicio 5: To-Do List con eliminación
+// Desarrolla una lista de tareas en la que puedas añadir tareas desde un
+// formulario. Cada tarea debe tener un botón de "Eliminar" para quitarla de la
+// lista.
+        const input = document.createElement("input");
+        const boton = document.createElement("button");
+        const lista = document.createElement("ul");
+        const li = document.createElement("li");
+        const x1 = document.createElement("button");
+
+        boton.textContent="ENVIAR";
+        document.body.append(input,boton,lista);
+        let escrito;
+        document.addEventListener("DOMContentLoaded",()=>{
+            input.addEventListener("input",(e)=>{
+                escrito = e.target.value.toLowerCase().trim();
+                console.log(escrito);
+                
+            })
+            boton.addEventListener("click",()=>{
+                
+                
+                lista.append(li);
+                li.textContent=escrito;
+                // const x1 = document.createElement("button");
+                x1.textContent="X";
+                li.append(x1);
+            })
+            x1.addEventListener("click",()=>{
+                li.remove();
+            })
+            
+        })
 
     </script>
+    
 </body>
 </html>
