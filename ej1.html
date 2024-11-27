@@ -158,42 +158,117 @@
         })
         
     </script> -->
-    <script>
+    <!-- <script>
 // Ejercicio 5: To-Do List con eliminación
 // Desarrolla una lista de tareas en la que puedas añadir tareas desde un
 // formulario. Cada tarea debe tener un botón de "Eliminar" para quitarla de la
 // lista.
         const input = document.createElement("input");
+        input.setAttribute("type","text");
         const boton = document.createElement("button");
         const lista = document.createElement("ul");
-        const li = document.createElement("li");
-        const x1 = document.createElement("button");
-
+              
         boton.textContent="ENVIAR";
+        
         document.body.append(input,boton,lista);
-        let escrito;
+
+        function limpiarInput(){
+            input.value="";
+            input.focus;
+        }
+
         document.addEventListener("DOMContentLoaded",()=>{
-            input.addEventListener("input",(e)=>{
-                escrito = e.target.value.toLowerCase().trim();
-                console.log(escrito);
-                
-            })
+           
             boton.addEventListener("click",()=>{
                 
+                let escrito = input.value.trim();
                 
-                lista.append(li);
+                const li = document.createElement("li");
                 li.textContent=escrito;
-                // const x1 = document.createElement("button");
+                lista.append(li);
+
+                const x1 = document.createElement("button");
                 x1.textContent="X";
                 li.append(x1);
+
+                x1.addEventListener("click",()=>{
+                    li.remove();
+                })
+                limpiarInput();
             })
-            x1.addEventListener("click",()=>{
-                li.remove();
-            })
-            
         })
+    </script> -->
+    <!-- <script>
+// Ejercicio 6: Cambiador de temas
+// Crea una página con tres botones: Claro, Oscuro, y Colorido. Al presionar
+// cada botón, cambia el tema de la página modificando los estilos del DOM.
+        const b1 = document.createElement("button");
+        const b2 = document.createElement("button");
+        const b3 = document.createElement("button");
+        b1.textContent="Claro";
+        b2.textContent="Oscuro";
+        b3.textContent="Colorado";
+
+        document.body.append(b1,b2,b3);
+
+        b1.addEventListener("click",()=>{
+            document.body.style.backgroundColor="white";
+        })
+        b2.addEventListener("click",()=>{
+            document.body.style.backgroundColor="Black";
+        })
+        b3.addEventListener("click",()=>{
+            document.body.style.background="Red";
+        })
+    </script> -->
+    <!-- <script>
+// Ejercicio 7: Cronómetro con inicio, pausa y reinicio
+// Crea un cronómetro que inicie desde 0 y tenga botones para iniciar, pausar y
+// reiniciar el contador. El tiempo debe actualizarse cada segundo.
+        
+        const iniciar = document.createElement("button");
+        iniciar.textContent="INICIAR";
+        const parar = document.createElement("button");
+        parar.textContent="PARAR";
+        const reiniciar = document.createElement("button");
+        reiniciar.textContent="REINICIAR";
+
+        const crono = document.createElement("p");
+        let tiempo = 0;
+        let intervaloTiempo=null;
+
+        function incrementar(){
+            tiempo++;
+            crono.textContent = tiempo;
+        }
+
+        document.addEventListener("DOMContentLoaded",()=>{
+            document.body.append(crono,iniciar,parar,reiniciar);
+            
+            iniciar.addEventListener("click",()=>{
+                intervaloTiempo=setInterval(incrementar, 1000);
+            })
+            parar.addEventListener("click",()=>{
+                clearInterval(intervaloTiempo);
+            })
+            reiniciar.addEventListener("click",()=>{
+                tiempo=0;
+                crono.textContent=tiempo;
+            })
+        })        
+    </script> -->
+    <script>
+// Ejercicio 8: Validación de formulario
+// Crea un formulario con campos de nombre, correo y contraseña. Al enviar,
+// valida que los campos no estén vacíos y que el correo tenga un formato válido.
+// Muestra mensajes de error o éxito en la página.
+
+        const inputN = document.createElement("input");
+        const inputC = document.createElement("input");
+        const inputContraseña = document.createElement("input");
+        const boton = document.createElement("button");
+        
 
     </script>
-    
 </body>
 </html>
