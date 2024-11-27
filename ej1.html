@@ -257,7 +257,7 @@
             })
         })        
     </script> -->
-    <script>
+    <!-- <script>
 // Ejercicio 8: Validación de formulario
 // Crea un formulario con campos de nombre, correo y contraseña. Al enviar,
 // valida que los campos no estén vacíos y que el correo tenga un formato válido.
@@ -267,8 +267,65 @@
         const inputC = document.createElement("input");
         const inputContraseña = document.createElement("input");
         const boton = document.createElement("button");
+        boton.textContent="ENVIAR";
+
+        document.body.append(inputN,inputC,inputContraseña,boton);
+        let escrito ="";
+        let escrito2 ="";
+        let escrito3 ="";
+        document.addEventListener("DOMContentLoaded",()=>{
+            inputN.addEventListener("input",(e)=>{
+                escrito = e.target.value;
+                console.log(escrito)
+            })
+            inputC.addEventListener("input",(e)=>{
+                escrito2 = e.target.value;
+                console.log(escrito2)
+            })
+            inputContraseña.addEventListener("input",(e)=>{
+                escrito3 = e.target.value;
+                console.log(escrito3)
+            })
+
+            boton.addEventListener("click",()=>{
+                if (!escrito && !escrito2 && !escrito3) {
+                    if (escrito2.value.trim().includes("@gmail.com")) {
+                        alert("no se ha rellenado");
+                    }
+                    
+                }
+                else{
+                    alert("todo perfecto");
+                }
+            })
+        })
+    </script> -->
+    <script>
+        const nombres = ["Antonio","Jose","Ana","Jorge"];
+        const input = document.createElement("input");
+        const ul = document.createElement("ul");
         
 
+        document.addEventListener("DOMContentLoaded",()=>{
+            document.body.append(input, ul);
+            nombres.forEach(nombre =>{
+                const li = document.createElement("li");
+                li.textContent= nombre;
+                ul.append(li);
+            });
+            input.addEventListener("input",(e)=>{
+                let escrito = e.target.value;
+                let listaLI = document.querySelectorAll("li");
+                listaLI.forEach(li =>{
+                    if (!li.textContent.toLowerCase().includes(escrito)) {
+                        li.style.display = "none";
+                    }else{
+                        li.style.display = "block";
+                    }
+                })
+            })
+        })
+            
     </script>
 </body>
 </html>
